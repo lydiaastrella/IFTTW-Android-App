@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">IFTTW</string>
+    <string name="tab_text_1">Active Routines</string>
+    <string name="tab_text_2">Inactive Routines</string>
+    <string name="steps_counter">Steps Counter</string>
+    <string name="phone_automation">Phone Automation</string>
+    <string name="battery_low_management">Battery Low Management</string>
+    <string name="reminder_notification">Reminder Notification</string>
+</resources>
