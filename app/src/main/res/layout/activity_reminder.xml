@@ -6,202 +6,206 @@
     android:layout_height="match_parent"
     tools:context=".Reminder">
 
-    <LinearLayout
-        android:layout_width="347dp"
-        android:layout_height="319dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="32dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.516"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-
-        <TextView
-            android:id="@+id/condText"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:height="50dp"
-            android:elegantTextHeight="false"
-            android:text="@string/condition"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:orientation="vertical">
 
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="330dp"
+                android:layout_height="320dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="32dp"
+                android:orientation="vertical">
 
-            <RadioButton
-                android:id="@+id/cond_time_radio"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:checked="true"
-                android:text="@string/cond_time_radio" />
 
-            <TextView
-                android:id="@+id/time_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/time_view"
-                android:textAlignment="center"
-                android:textSize="24sp" />
-
-            <TableLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TableRow
+                <TextView
+                    android:id="@+id/condText"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content"
+                    android:height="50dp"
+                    android:elegantTextHeight="false"
+                    android:text="@string/condition"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-                    <CheckBox
-                        android:id="@+id/senin"
-                        android:layout_width="85dp"
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:id="@+id/cond_time_radio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:checked="true"
+                        android:text="@string/cond_time_radio" />
+
+                    <TextView
+                        android:id="@+id/time_view"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:text="@string/time_view"
+                        android:textAlignment="center"
+                        android:textSize="24sp" />
+
+                    <TableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <CheckBox
+                                android:id="@+id/senin"
+                                android:layout_width="80dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0"
+                                android:text="@string/senin" />
+
+                            <CheckBox
+                                android:id="@+id/selasa"
+                                android:layout_width="80dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0"
+                                android:text="@string/selasa" />
+
+                            <CheckBox
+                                android:id="@+id/rabu"
+                                android:layout_width="80dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/rabu" />
+
+                            <CheckBox
+                                android:id="@+id/kamis"
+                                android:layout_width="80dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/kamis" />
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent">
+
+                            <CheckBox
+                                android:id="@+id/jumat"
+                                android:layout_width="79dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/jumat" />
+
+                            <CheckBox
+                                android:id="@+id/sabtu"
+                                android:layout_width="79dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/sabtu" />
+
+                            <CheckBox
+                                android:id="@+id/minggu"
+                                android:layout_width="82dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/minggu" />
+
+                            <CheckBox
+                                android:id="@+id/checkBox10"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/satukali" />
+
+                        </TableRow>
+
+                    </TableLayout>
+
+                    <RadioButton
+                        android:id="@+id/cond_datetime_radio2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
                         android:layout_weight="0"
-                        android:text="@string/senin" />
+                        android:checked="false"
+                        android:text="@string/cond_datetime_radio" />
 
-                    <CheckBox
-                        android:id="@+id/selasa"
-                        android:layout_width="85dp"
+                    <TextView
+                        android:id="@+id/time_view2"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0"
-                        android:text="@string/selasa" />
+                        android:text="@string/time_view"
+                        android:textAlignment="center"
+                        android:textSize="24sp" />
 
-                    <CheckBox
-                        android:id="@+id/rabu"
-                        android:layout_width="85dp"
+                    <TextView
+                        android:id="@+id/date_view"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/rabu" />
+                        android:text="@string/date_view"
+                        android:textAlignment="center"
+                        android:textSize="18sp" />
 
-                    <CheckBox
-                        android:id="@+id/kamis"
-                        android:layout_width="85dp"
-                        android:layout_height="wrap_content"
-                        android:text="@string/kamis" />
-                </TableRow>
+                </RadioGroup>
 
-                <TableRow
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent">
+            </LinearLayout>
 
-                    <CheckBox
-                        android:id="@+id/jumat"
-                        android:layout_width="85dp"
-                        android:layout_height="wrap_content"
-                        android:text="@string/jumat" />
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="330dp"
+                android:layout_height="204dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginRight="20dp"
+                android:orientation="vertical">
 
-                    <CheckBox
-                        android:id="@+id/sabtu"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/sabtu" />
+                <TextView
+                    android:id="@+id/actText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:height="40dp"
+                    android:text="@string/action"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-                    <CheckBox
-                        android:id="@+id/minggu"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/minggu" />
+                <RadioButton
+                    android:id="@+id/act_get_notif_radio"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:checked="true"
+                    android:text="@string/act_get_notif_radio" />
 
-                    <CheckBox
-                        android:id="@+id/checkBox10"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/satukali" />
+                <EditText
+                    android:id="@+id/notif_msg_title_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/notif_msg_title_input"
+                    android:inputType="textPersonName"
+                    android:textSize="14sp" />
 
-                </TableRow>
+                <EditText
+                    android:id="@+id/notif_msg_detail_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/notif_msg_detail_input"
+                    android:inputType="textPersonName"
+                    android:textSize="14sp" />
 
-            </TableLayout>
+            </LinearLayout>
 
-            <RadioButton
-                android:id="@+id/cond_datetime_radio2"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_weight="0"
-                android:checked="false"
-                android:text="@string/cond_datetime_radio" />
+            <Button
+                android:id="@+id/saveReminder"
+                android:layout_width="93dp"
+                android:layout_height="45dp"
+                android:layout_marginLeft="135dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="30dp"
+                android:text="@string/save" />
 
-            <TextView
-                android:id="@+id/time_view2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/time_view"
-                android:textAlignment="center"
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/date_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/date_view"
-                android:textAlignment="center"
-                android:textSize="18sp" />
-
-        </RadioGroup>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="346dp"
-        android:layout_height="264dp"
-        android:layout_marginTop="384dp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/actText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:height="40dp"
-            android:text="@string/action"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <RadioButton
-            android:id="@+id/act_get_notif_radio"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:checked="true"
-            android:text="@string/act_get_notif_radio" />
-
-        <EditText
-            android:id="@+id/notif_msg_title_input"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="@string/notif_msg_title_input"
-            android:textSize="14sp" />
-
-        <EditText
-            android:id="@+id/notif_msg_detail_input"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="@string/notif_msg_detail_input"
-            android:textSize="14sp" />
-
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/saveReminder"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="667dp"
-        android:text="@string/save"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
