@@ -6,4 +6,10 @@
     <string name="phone_automation">Phone Automation</string>
     <string name="battery_low_management">Battery Low Management</string>
     <string name="reminder_notification">Reminder Notification</string>
+    <string name="condition">Condition</string>
+    <string name="action">Action</string>
+    <string name="save">Save</string>
+    <string name="cond_time_radio">At a specific time</string>
+    <string name="act_get_notif_radio">Get reminder notification</string>
+    <string name="notif_msg_input">Notification Message</string>
 </resources>
