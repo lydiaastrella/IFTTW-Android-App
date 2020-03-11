@@ -10,6 +10,18 @@
     <string name="action">Action</string>
     <string name="save">Save</string>
     <string name="cond_time_radio">At a specific time</string>
+    <string name="cond_datetime_radio">At a specific date and time</string>
     <string name="act_get_notif_radio">Get reminder notification</string>
-    <string name="notif_msg_input">Notification Message</string>
+    <string name="notif_msg_title_input">Notification Title</string>
+    <string name="notif_msg_detail_input">Notification Detail Message</string>
+    <string name="time_view">00 : 00</string>
+    <string name="date_view">11 / 03 / 2020</string>
+    <string name="senin">Senin</string>
+    <string name="selasa">Selasa</string>
+    <string name="rabu">Rabu</string>
+    <string name="kamis">Kamis</string>
+    <string name="jumat">Jumat</string>
+    <string name="sabtu">Sabtu</string>
+    <string name="minggu">Minggu</string>
+    <string name="satukali">Satu kali</string>
 </resources>
