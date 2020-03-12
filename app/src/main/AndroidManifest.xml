@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Reminder"></activity>
+        <activity android:name=".PhoneAutomation"></activity>
+        <activity android:name=".Reminder" />
         <activity android:name=".ui.main.FunctionalityActivity" />
         <activity
             android:name=".MainActivity"

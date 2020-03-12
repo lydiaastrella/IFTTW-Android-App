@@ -15,6 +15,11 @@
     <string name="cond_time_radio">At a specific time</string>
     <string name="cond_datetime_radio">At a specific date and time</string>
     <string name="act_get_notif_radio">Get reminder notification</string>
+    <string name="act_mute_phone">Mute phone</string>
+    <string name="act_unmute_phone">Unmute phone</string>
+    <string name="act_off_wifi">Turn off wifi</string>
+    <string name="act_on_wifi">Turn on wifi</string>
+    <string name="act_weather_notif">Get notification on weather update</string>
     <string name="notif_msg_title_input">Notification Title</string>
     <string name="notif_msg_detail_input">Notification Detail Message</string>
     <string name="time_view">00 : 00</string>

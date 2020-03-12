@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.ifttw.MainActivity;
+import com.example.ifttw.PhoneAutomation;
 import com.example.ifttw.R;
 import com.example.ifttw.Reminder;
 
@@ -37,6 +38,7 @@ public class FunctionalityActivity extends AppCompatActivity implements View.OnC
 
     @Override
     public void onClick(View view) {
+        Intent intent, intent2;
         switch (view.getId()) {
             case R.id.btn_step:
                 Log.d("ke halaman step counter","silakan ubah");
@@ -44,9 +46,8 @@ public class FunctionalityActivity extends AppCompatActivity implements View.OnC
                 toast1.show();
                 break;
             case R.id.btn_phone_auto:
-                Log.d("ke halaman phone auto","silakan ubah");
-                Toast toast2 = Toast.makeText(getApplicationContext(), "ke halaman phone automation",Toast.LENGTH_SHORT);
-                toast2.show();
+                intent = new Intent(FunctionalityActivity.this, PhoneAutomation.class);
+                startActivity(intent);
                 break;
             case R.id.btn_battery:
                 Log.d("ke halaman battery","silakan ubah");
@@ -54,8 +55,8 @@ public class FunctionalityActivity extends AppCompatActivity implements View.OnC
                 toast3.show();
                 break;
             case R.id.btn_reminder:
-                Intent intent = new Intent(FunctionalityActivity.this, Reminder.class);
-                startActivity(intent);
+                intent2 = new Intent(FunctionalityActivity.this, Reminder.class);
+                startActivity(intent2);
                 break;
         }
     }
