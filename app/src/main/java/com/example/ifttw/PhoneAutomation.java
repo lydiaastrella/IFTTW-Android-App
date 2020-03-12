@@ -18,7 +18,7 @@ public class PhoneAutomation extends AppCompatActivity implements TimePickerDial
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reminder);
+        setContentView(R.layout.activity_phone_automation);
 
         timeView = findViewById(R.id.time_view);
         timeView2 = findViewById(R.id.time_view2);
