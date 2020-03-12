@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.main.StepsCounter"></activity>
+        <activity android:name=".BatteryNotification"></activity>
+        <activity android:name=".ui.main.StepsCounter" />
         <activity android:name=".StepsCounter" />
         <activity android:name=".PhoneAutomation" />
         <activity android:name=".Reminder" />

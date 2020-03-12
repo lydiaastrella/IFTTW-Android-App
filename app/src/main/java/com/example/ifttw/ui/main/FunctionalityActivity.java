@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.ifttw.BatteryNotification;
 import com.example.ifttw.MainActivity;
 import com.example.ifttw.PhoneAutomation;
 import com.example.ifttw.R;
@@ -50,9 +51,8 @@ public class FunctionalityActivity extends AppCompatActivity implements View.OnC
                 startActivity(intent);
                 break;
             case R.id.btn_battery:
-                Log.d("ke halaman battery","silakan ubah");
-                Toast toast3 = Toast.makeText(getApplicationContext(), "ke halaman battery low automation",Toast.LENGTH_SHORT);
-                toast3.show();
+                intent = new Intent(FunctionalityActivity.this, BatteryNotification.class);
+                startActivity(intent);
                 break;
             case R.id.btn_reminder:
                 intent = new Intent(FunctionalityActivity.this, Reminder.class);

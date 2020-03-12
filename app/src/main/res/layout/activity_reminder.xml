@@ -41,7 +41,7 @@
                     android:layout_height="wrap_content">
 
                     <RadioButton
-                        android:id="@+id/cond_time_radio"
+                        android:id="@+id/cond_battery"
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
                         android:checked="true"
@@ -170,7 +170,7 @@
                     android:textStyle="bold" />
 
                 <RadioButton
-                    android:id="@+id/act_get_notif_radio"
+                    android:id="@+id/act_of_wifi"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:checked="true"
