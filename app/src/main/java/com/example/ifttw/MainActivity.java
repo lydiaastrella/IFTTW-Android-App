@@ -34,14 +34,14 @@ public class MainActivity extends AppCompatActivity{
         SQLiteDatabaseHandler db = new SQLiteDatabaseHandler(this);
 
         //CONTOH MASUKKIN DATA
-        Routine routine1 = new Routine("Steps", "When target (6000) achieved", "Notify me");
-        Routine routine2 = new Routine("Phone Automation", "At 00:00", "Mute Phone");
-        Routine routine3 = new Routine("Battery Low Automation", "When battery less than 15%", "Turn off wifi");
-        Routine routine4 = new Routine("Reminder", "At 01.00", "Notify me that this is an inactive routine");
-        db.addRoutine(routine1, true);
-        db.addRoutine(routine2, true);
-        db.addRoutine(routine3, true);
-        db.addRoutine(routine4, false);
+//        Routine routine1 = new Routine("Steps", "When target (6000) achieved", "Notify me");
+//        Routine routine2 = new Routine("Phone Automation", "At 00:00", "Mute Phone");
+//        Routine routine3 = new Routine("Battery Low Automation", "When battery less than 15%", "Turn off wifi");
+//        Routine routine4 = new Routine("Reminder", "At 01.00", "Notify me that this is an inactive routine");
+//        db.addRoutine(routine1, true);
+//        db.addRoutine(routine2, true);
+//        db.addRoutine(routine3, true);
+//        db.addRoutine(routine4, false);
 
 
         fab.setOnClickListener(new View.OnClickListener() {
