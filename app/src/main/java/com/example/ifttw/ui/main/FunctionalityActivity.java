@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.ifttw.MainActivity;
 import com.example.ifttw.R;
+import com.example.ifttw.Reminder;
 
 public class FunctionalityActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -53,9 +54,8 @@ public class FunctionalityActivity extends AppCompatActivity implements View.OnC
                 toast3.show();
                 break;
             case R.id.btn_reminder:
-                Log.d("ke halaman reminder","silakan ubah");
-                Toast toast4 = Toast.makeText(getApplicationContext(), "ke halaman reminder",Toast.LENGTH_SHORT);
-                toast4.show();
+                Intent intent = new Intent(FunctionalityActivity.this, Reminder.class);
+                startActivity(intent);
                 break;
         }
     }

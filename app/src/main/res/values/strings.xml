@@ -2,22 +2,13 @@
     <string name="app_name">IFTTW</string>
     <string name="tab_text_1">Active Routines</string>
     <string name="tab_text_2">Inactive Routines</string>
-<<<<<<< HEAD
-
-=======
->>>>>>> 5f485dcf03d217e23e1cfbe9e5fba3b757bafadc
     <string name="steps_counter">Steps Counter</string>
     <string name="phone_automation">Phone Automation</string>
     <string name="battery_low_management">Battery Low Management</string>
     <string name="reminder_notification">Reminder Notification</string>
-<<<<<<< HEAD
-
     <string name="delete_routine">Delete Routine</string>
     <string name="activate_routine">Activate Routine</string>
     <string name="deactivate_routine">Deactivate Routine</string>
-
-=======
->>>>>>> 5f485dcf03d217e23e1cfbe9e5fba3b757bafadc
     <string name="condition">Condition</string>
     <string name="action">Action</string>
     <string name="save">Save</string>
