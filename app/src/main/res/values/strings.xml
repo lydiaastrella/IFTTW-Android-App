@@ -14,6 +14,7 @@
     <string name="save">Save</string>
     <string name="cond_time_radio">At a specific time</string>
     <string name="cond_datetime_radio">At a specific date and time</string>
+    <string name="cond_sensor_detect">When sensor detect</string>
     <string name="act_get_notif_radio">Get reminder notification</string>
     <string name="act_mute_phone">Mute phone</string>
     <string name="act_unmute_phone">Unmute phone</string>

@@ -14,6 +14,7 @@ import com.example.ifttw.MainActivity;
 import com.example.ifttw.PhoneAutomation;
 import com.example.ifttw.R;
 import com.example.ifttw.Reminder;
+import com.example.ifttw.StepsCounter;
 
 public class FunctionalityActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -38,12 +39,11 @@ public class FunctionalityActivity extends AppCompatActivity implements View.OnC
 
     @Override
     public void onClick(View view) {
-        Intent intent, intent2;
+        Intent intent;
         switch (view.getId()) {
             case R.id.btn_step:
-                Log.d("ke halaman step counter","silakan ubah");
-                Toast toast1 = Toast.makeText(getApplicationContext(), "ke halaman step counter",Toast.LENGTH_SHORT);
-                toast1.show();
+                intent = new Intent(FunctionalityActivity.this, StepsCounter.class);
+                startActivity(intent);
                 break;
             case R.id.btn_phone_auto:
                 intent = new Intent(FunctionalityActivity.this, PhoneAutomation.class);
@@ -55,8 +55,8 @@ public class FunctionalityActivity extends AppCompatActivity implements View.OnC
                 toast3.show();
                 break;
             case R.id.btn_reminder:
-                intent2 = new Intent(FunctionalityActivity.this, Reminder.class);
-                startActivity(intent2);
+                intent = new Intent(FunctionalityActivity.this, Reminder.class);
+                startActivity(intent);
                 break;
         }
     }
