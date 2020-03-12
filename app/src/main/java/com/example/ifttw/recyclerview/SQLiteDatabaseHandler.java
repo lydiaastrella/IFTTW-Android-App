@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import android.widget.Toast;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -138,5 +139,4 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper {
             return db.delete(TABLE_NAME_INACTIVE, KEY_FUNCTIONALITY + "= \"" + functionality + "\" AND " +KEY_CONDITION + "= \"" +condition+ "\" AND " +KEY_ACTION + "= \"" +action + "\"", null) > 0;
         }
     }
-
 }

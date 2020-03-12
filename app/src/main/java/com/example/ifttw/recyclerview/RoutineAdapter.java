@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,6 +21,7 @@ public class RoutineAdapter extends RecyclerView.Adapter<RoutineAdapter.MyViewHo
     private OnItemClickCallback onItemClickCallback;
     private OnItemLongClickCallback onItemLongClickCallback;
     private int index;
+
 
     public RoutineAdapter(Context context, List<Routine> listRoutine) {
         this.context = context;
