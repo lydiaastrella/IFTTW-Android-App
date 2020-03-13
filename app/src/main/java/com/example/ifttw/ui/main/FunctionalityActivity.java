@@ -3,19 +3,15 @@ package com.example.ifttw.ui.main;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.example.ifttw.BatteryNotification;
-import com.example.ifttw.MainActivity;
 import com.example.ifttw.PhoneAutomation;
 import com.example.ifttw.R;
 import com.example.ifttw.Reminder;
-import com.example.ifttw.StepsCounter;
+import com.example.ifttw.Accelerometer;
 
 public class FunctionalityActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -43,7 +39,7 @@ public class FunctionalityActivity extends AppCompatActivity implements View.OnC
         Intent intent;
         switch (view.getId()) {
             case R.id.btn_step:
-                intent = new Intent(FunctionalityActivity.this, StepsCounter.class);
+                intent = new Intent(FunctionalityActivity.this, Accelerometer.class);
                 startActivity(intent);
                 break;
             case R.id.btn_phone_auto:

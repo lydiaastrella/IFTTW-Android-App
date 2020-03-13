@@ -16,7 +16,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".BatteryNotification"></activity>
         <activity android:name=".ui.main.StepsCounter" />
-        <activity android:name=".StepsCounter" />
+        <activity android:name=".Accelerometer" />
         <activity android:name=".PhoneAutomation" />
         <activity android:name=".Reminder" />
         <activity android:name=".ui.main.FunctionalityActivity" />
@@ -34,7 +34,7 @@
             android:enabled="true"
             android:exported="true" />
         <service
-            android:name=".MyService"
+            android:name=".AccelerometerService"
             android:enabled="true"
             android:exported="true"/>
         <service

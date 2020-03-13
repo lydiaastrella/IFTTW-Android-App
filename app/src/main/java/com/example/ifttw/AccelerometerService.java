@@ -19,7 +19,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class MyService extends Service implements SensorEventListener {
+public class AccelerometerService extends Service implements SensorEventListener {
 
     private SensorManager sensorManager;
     private Sensor accelerometer;
