@@ -44,9 +44,9 @@ public class AlarmReceiver extends BroadcastReceiver {
         String type = intent.getStringExtra(EXTRA_TYPE);
         String extra_message = intent.getStringExtra(EXTRA_MESSAGE);
         String message[] = extra_message.split("\n");
-        String title = type.equalsIgnoreCase(TYPE_ONE_TIME) ? TYPE_ONE_TIME : TYPE_REPEATING;
+        //String title = type.equalsIgnoreCase(TYPE_ONE_TIME) ? TYPE_ONE_TIME : TYPE_REPEATING;
         int notifId = type.equalsIgnoreCase(TYPE_ONE_TIME) ? ID_ONETIME : ID_REPEATING;
-        showToast(context, title, extra_message);
+        showToast(context, message[0], message[1]);
         showAlarmNotification(context, message[0], message[1], notifId);
     }
 
@@ -62,6 +62,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         Intent intent = new Intent(context, AlarmReceiver.class);
         intent.putExtra(EXTRA_MESSAGE, message);
         intent.putExtra(EXTRA_TYPE, type);
+        intent.setAction(Long.toString(System.currentTimeMillis()));
         String dateArray[] = date.split(" / ");
         String timeArray[] = time.split(" : ");
         //Log.d("Month",dateArray[0]);

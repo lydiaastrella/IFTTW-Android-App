@@ -17,7 +17,9 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 public class Reminder extends AppCompatActivity implements  View.OnClickListener, DatePickerFragment.DialogDateListener, TimePickerFragment.DialogTimeListener {
@@ -26,7 +28,7 @@ public class Reminder extends AppCompatActivity implements  View.OnClickListener
     EditText edtReminderTitle, edtReminderMessage;
     RadioButton rbAtTime, rbDateTime, rbNotifReminder;
     Button btnSave;
-    CheckBox cbSenin, cbSelasa, cbRabu, cbKamis, cbJumat, cbSabtu, cbMinggu, cbRepeat;
+    CheckBox cbSenin, cbSelasa, cbRabu, cbKamis, cbJumat, cbSabtu, cbMinggu, cbOneTime;
 
     private AlarmReceiver alarmReceiver;
 
@@ -55,7 +57,7 @@ public class Reminder extends AppCompatActivity implements  View.OnClickListener
         cbJumat = findViewById(R.id.jumat);
         cbSabtu = findViewById(R.id.sabtu);
         cbMinggu = findViewById(R.id.minggu);
-        cbRepeat = findViewById(R.id.onetime);
+        cbOneTime = findViewById(R.id.onetime);
 
         btnSave.setOnClickListener(this);
         timeView.setOnClickListener(this);
@@ -115,10 +117,61 @@ public class Reminder extends AppCompatActivity implements  View.OnClickListener
                     Log.d("NotifReminder", "NotifReminder selected");
                     if (rbAtTime.isChecked()) {
                         Log.d("rbAtTime", "rbAtTime selected");
-                        if(cbRepeat.isChecked()){
-                            Log.d("Repeat","Repeat");
+                        if(cbOneTime.isChecked()){
+                            Log.d("One Time","One Time");
+                            Date date_now = Calendar.getInstance().getTime();
+                            SimpleDateFormat df = new SimpleDateFormat("MM / dd / yyyy");
+                            String formatted_date_now = df.format(date_now);
+                            String onceTime = timeView.getText().toString();
+                            String onceMessage = edtReminderMessage.getText().toString();
+                            String onceTitle = edtReminderTitle.getText().toString()+"\n";
+                            Log.d("message", onceTitle + onceMessage);
+                            int day_now = Calendar.getInstance().get(Calendar.DAY_OF_WEEK);
+                            int selisih;
+                            if(cbSenin.isChecked()) {
+                                int senin = 2;
+                                String formatted_new_date = getNewDate(day_now, senin);
+                                Log.d("senin", formatted_new_date);
+                                alarmReceiver.setOneTimeAlarm(this, AlarmReceiver.TYPE_ONE_TIME, formatted_new_date, onceTime, onceTitle+onceMessage);
+                            }
+                            if(cbSelasa.isChecked()){
+                                int selasa = 3;
+                                String formatted_new_date = getNewDate(day_now, selasa);
+                                Log.d("selasa", formatted_new_date);
+                                alarmReceiver.setOneTimeAlarm(this, AlarmReceiver.TYPE_ONE_TIME, formatted_new_date, onceTime, onceTitle+onceMessage);
+                            }
+                            if(cbRabu.isChecked()){
+                                int rabu = 4;
+                                String formatted_new_date = getNewDate(day_now, rabu);
+                                Log.d("rabu", formatted_new_date);
+                                alarmReceiver.setOneTimeAlarm(this, AlarmReceiver.TYPE_ONE_TIME, formatted_new_date, onceTime, onceTitle+onceMessage);
+                            }
+                            if(cbKamis.isChecked()){
+                                int kamis = 5;
+                                String formatted_new_date = getNewDate(day_now, kamis);
+                                Log.d("kamis", formatted_new_date);
+                                alarmReceiver.setOneTimeAlarm(this, AlarmReceiver.TYPE_ONE_TIME, formatted_new_date, onceTime, onceTitle+onceMessage);
+                            }
+                            if(cbJumat.isChecked()){
+                                int jumat =6;
+                                String formatted_new_date = getNewDate(day_now, jumat);
+                                Log.d("jumat", formatted_new_date);
+                                alarmReceiver.setOneTimeAlarm(this, AlarmReceiver.TYPE_ONE_TIME, formatted_new_date, onceTime, onceTitle+onceMessage);
+                            }
+                            if (cbSabtu.isChecked()) {
+                                int sabtu = 7;
+                                String formatted_new_date = getNewDate(day_now, sabtu);
+                                Log.d("sabtu", formatted_new_date);
+                                alarmReceiver.setOneTimeAlarm(this, AlarmReceiver.TYPE_ONE_TIME, formatted_new_date, onceTime, onceTitle+onceMessage);
+                            }
+                            if(cbMinggu.isChecked()){
+                                int minggu = 1;
+                                String formatted_new_date = getNewDate(day_now, minggu);
+                                Log.d("minggu", formatted_new_date);
+                                alarmReceiver.setOneTimeAlarm(this, AlarmReceiver.TYPE_ONE_TIME, formatted_new_date, onceTime, onceTitle+onceMessage);
+                            }
                         }else{
-                            Log.d("not repeat","not repeat");
+                            Log.d("Repeat","Repeat");
                         }
                     } else if (rbDateTime.isChecked()) {
                         Log.d("rbDateTime", "rbDateTime selected");
@@ -132,6 +185,20 @@ public class Reminder extends AppCompatActivity implements  View.OnClickListener
                 }
                 break;
         }
+    }
+
+    private String getNewDate(int day_now, int day_ahead){
+        SimpleDateFormat df = new SimpleDateFormat("MM / dd / yyyy");
+        int selisih;
+        if(day_now<=day_ahead){
+            selisih = day_ahead-day_now;
+        }else{
+            selisih = 7-day_now+day_ahead;
+        }
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DAY_OF_YEAR, +selisih);
+        Date newDate = calendar.getTime();
+        return df.format(newDate);
     }
 
 }
