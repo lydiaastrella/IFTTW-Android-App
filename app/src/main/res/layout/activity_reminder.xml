@@ -197,7 +197,7 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/saveReminder"
+                android:id="@+id/saveBattery"
                 android:layout_width="93dp"
                 android:layout_height="45dp"
                 android:layout_marginLeft="135dp"
