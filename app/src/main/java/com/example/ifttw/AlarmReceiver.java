@@ -55,21 +55,25 @@ public class AlarmReceiver extends BroadcastReceiver {
     }
 
     public void setOneTimeAlarm(Context context, String type, String date, String time, String message) {
-        String DATE_FORMAT = "MM /dd / 2020";
+        Log.d("masuk","masuk");
+        String DATE_FORMAT = "MM /dd / yyyy";
         String TIME_FORMAT = "HH : mm";
+        Log.d("date",date);
+        Log.d("time", time);
         if (isDateInvalid(date, DATE_FORMAT) || isDateInvalid(time, TIME_FORMAT)) return;
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        Log.d("valid","valid");
         Intent intent = new Intent(context, AlarmReceiver.class);
         intent.putExtra(EXTRA_MESSAGE, message);
         intent.putExtra(EXTRA_TYPE, type);
         intent.setAction(Long.toString(System.currentTimeMillis()));
         String dateArray[] = date.split(" / ");
         String timeArray[] = time.split(" : ");
-        //Log.d("Month",dateArray[0]);
-        //Log.d("day of month",dateArray[1]);
-        //Log.d("year",dateArray[2]);
-        //Log.d("hour of day", timeArray[0]);
-        //Log.d("minute", timeArray[1]);
+        Log.d("Month",dateArray[0]);
+        Log.d("day of month",dateArray[1]);
+        Log.d("year",dateArray[2]);
+        Log.d("hour of day", timeArray[0]);
+        Log.d("minute", timeArray[1]);
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.MONTH, Integer.parseInt(dateArray[0]) - 1);
         calendar.set(Calendar.DAY_OF_MONTH, Integer.parseInt(dateArray[1]));
