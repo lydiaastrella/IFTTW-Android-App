@@ -5,6 +5,7 @@ import androidx.fragment.app.DialogFragment;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -21,6 +22,8 @@ import android.widget.TimePicker;
 import com.example.ifttw.openweather.JSONWeatherParser;
 import com.example.ifttw.openweather.Weather;
 import com.example.ifttw.openweather.WeatherHttpClient;
+import com.example.ifttw.recyclerview.Routine;
+import com.example.ifttw.recyclerview.SQLiteDatabaseHandler;
 
 import org.json.JSONException;
 
@@ -35,6 +38,7 @@ public class PhoneAutomation extends AppCompatActivity implements  View.OnClickL
     RadioButton rbAtTime, rbDateTime, rbNotifReminder, rbMutePhone, rbUnmutePhone, rbOnWifi, rbOffWifi, rbOpenWeather;
     Button btnSave;
     CheckBox cbSenin, cbSelasa, cbRabu, cbKamis, cbJumat, cbSabtu, cbMinggu, cbOneTime;
+    String functionality, condition, action;
 
     private AlarmReceiver alarmReceiver;
 
@@ -124,14 +128,17 @@ public class PhoneAutomation extends AppCompatActivity implements  View.OnClickL
                 if(rbAtTime.isChecked()){
                     Log.d("rbAtTime", "rbAtTime selected");
                     if(cbOneTime.isChecked()){
+                        functionality = "One time";
                         Log.d("One Time","One Time");
                         String onceTime = timeView.getText().toString();
                         int day_now = Calendar.getInstance().get(Calendar.DAY_OF_WEEK);
                         if(cbSenin.isChecked()) {
                             int senin = 2;
+                            condition = "Senin";
                             String formatted_new_date = getNewDate(day_now, senin);
                             Log.d("senin", formatted_new_date);
                             if(rbOpenWeather.isChecked()){
+                                action = "OpenWeather notif";
                                 Log.d("OpenWeather one time", "OW one time");
                                 JSONWeatherTask task = new JSONWeatherTask();
                                 task.execute(new String[]{"Bandung,ID",formatted_new_date,onceTime,"one time"});
@@ -139,9 +146,11 @@ public class PhoneAutomation extends AppCompatActivity implements  View.OnClickL
                         }
                         if(cbSelasa.isChecked()){
                             int selasa = 3;
+                            condition = "Selasa";
                             String formatted_new_date = getNewDate(day_now, selasa);
                             Log.d("selasa", formatted_new_date);
                             if(rbOpenWeather.isChecked()){
+                                action = "OpenWeather notif";
                                 Log.d("OpenWeather one time", "OW one time");
                                 JSONWeatherTask task = new JSONWeatherTask();
                                 task.execute(new String[]{"Bandung,ID",formatted_new_date,onceTime,"one time"});
@@ -149,9 +158,11 @@ public class PhoneAutomation extends AppCompatActivity implements  View.OnClickL
                         }
                         if(cbRabu.isChecked()){
                             int rabu = 4;
+                            condition = "Rabu";
                             String formatted_new_date = getNewDate(day_now, rabu);
                             Log.d("rabu", formatted_new_date);
                             if(rbOpenWeather.isChecked()){
+                                action = "OpenWeather notif";
                                 Log.d("OpenWeather one time", "OW one time");
                                 JSONWeatherTask task = new JSONWeatherTask();
                                 task.execute(new String[]{"Bandung,ID",formatted_new_date,onceTime,"one time"});
@@ -159,9 +170,11 @@ public class PhoneAutomation extends AppCompatActivity implements  View.OnClickL
                         }
                         if(cbKamis.isChecked()){
                             int kamis = 5;
+                            condition = "Kamis";
                             String formatted_new_date = getNewDate(day_now, kamis);
                             Log.d("kamis", formatted_new_date);
                             if(rbOpenWeather.isChecked()){
+                                action = "OpenWeather notif";
                                 Log.d("OpenWeather one time", "OW one time");
                                 JSONWeatherTask task = new JSONWeatherTask();
                                 task.execute(new String[]{"Bandung,ID",formatted_new_date,onceTime,"one time"});
@@ -169,9 +182,11 @@ public class PhoneAutomation extends AppCompatActivity implements  View.OnClickL
                         }
                         if(cbJumat.isChecked()){
                             int jumat =6;
+                            condition = "Jumat";
                             String formatted_new_date = getNewDate(day_now, jumat);
                             Log.d("jumat", formatted_new_date);
                             if(rbOpenWeather.isChecked()){
+                                action = "OpenWeather notif";
                                 Log.d("OpenWeather one time", "OW one time");
                                 JSONWeatherTask task = new JSONWeatherTask();
                                 task.execute(new String[]{"Bandung,ID",formatted_new_date,onceTime,"one time"});
@@ -179,9 +194,11 @@ public class PhoneAutomation extends AppCompatActivity implements  View.OnClickL
                         }
                         if (cbSabtu.isChecked()) {
                             int sabtu = 7;
+                            condition = "Sabtu";
                             String formatted_new_date = getNewDate(day_now, sabtu);
                             Log.d("sabtu", formatted_new_date);
                             if(rbOpenWeather.isChecked()){
+                                action = "OpenWeather notif";
                                 Log.d("OpenWeather one time", "OW one time");
                                 JSONWeatherTask task = new JSONWeatherTask();
                                 task.execute(new String[]{"Bandung,ID",formatted_new_date,onceTime,"one time"});
@@ -189,23 +206,28 @@ public class PhoneAutomation extends AppCompatActivity implements  View.OnClickL
                         }
                         if(cbMinggu.isChecked()){
                             int minggu = 1;
+                            condition = "Minggu";
                             String formatted_new_date = getNewDate(day_now, minggu);
                             Log.d("minggu", formatted_new_date);
                             if(rbOpenWeather.isChecked()){
+                                action = "OpenWeather notif";
                                 Log.d("OpenWeather one time", "OW one time");
                                 JSONWeatherTask task = new JSONWeatherTask();
                                 task.execute(new String[]{"Bandung,ID",formatted_new_date,onceTime,"one time"});
                             }
                         }
-                    }else {
+                    } else {
+                        functionality = "Repeat Time";
                         Log.d("Repeat", "Repeat");
                         String repeatTime = timeView.getText().toString();
                         int day_now = Calendar.getInstance().get(Calendar.DAY_OF_WEEK);
                         if (cbSenin.isChecked()) {
                             int senin = 2;
+                            condition = "Senin";
                             String formatted_new_date = getNewDate(day_now, senin);
                             Log.d("senin", formatted_new_date);
                             if(rbOpenWeather.isChecked()){
+                                action = "OpenWeather notif";
                                 Log.d("OpenWeather repeat", "OW repeat");
                                 JSONWeatherTask task = new JSONWeatherTask();
                                 task.execute(new String[]{"Bandung,ID",formatted_new_date,repeatTime,"repeat"});
@@ -213,9 +235,11 @@ public class PhoneAutomation extends AppCompatActivity implements  View.OnClickL
                         }
                         if (cbSelasa.isChecked()) {
                             int selasa = 3;
+                            condition = "Selasa";
                             String formatted_new_date = getNewDate(day_now, selasa);
                             Log.d("selasa", formatted_new_date);
                             if(rbOpenWeather.isChecked()){
+                                action = "OpenWeather notif";
                                 Log.d("OpenWeather repeat", "OW repeat");
                                 JSONWeatherTask task = new JSONWeatherTask();
                                 task.execute(new String[]{"Bandung,ID",formatted_new_date,repeatTime,"repeat"});
@@ -223,9 +247,11 @@ public class PhoneAutomation extends AppCompatActivity implements  View.OnClickL
                         }
                         if (cbRabu.isChecked()) {
                             int rabu = 4;
+                            condition = "Rabu";
                             String formatted_new_date = getNewDate(day_now, rabu);
                             Log.d("rabu", formatted_new_date);
                             if(rbOpenWeather.isChecked()){
+                                action = "OpenWeather notif";
                                 Log.d("OpenWeather repeat", "OW repeat");
                                 JSONWeatherTask task = new JSONWeatherTask();
                                 task.execute(new String[]{"Bandung,ID",formatted_new_date,repeatTime,"repeat"});
@@ -233,9 +259,11 @@ public class PhoneAutomation extends AppCompatActivity implements  View.OnClickL
                         }
                         if (cbKamis.isChecked()) {
                             int kamis = 5;
+                            condition = "Kamis";
                             String formatted_new_date = getNewDate(day_now, kamis);
                             Log.d("kamis", formatted_new_date);
                             if(rbOpenWeather.isChecked()){
+                                action = "OpenWeather notif";
                                 Log.d("OpenWeather repeat", "OW repeat");
                                 JSONWeatherTask task = new JSONWeatherTask();
                                 task.execute(new String[]{"Bandung,ID",formatted_new_date,repeatTime,"repeat"});
@@ -243,9 +271,11 @@ public class PhoneAutomation extends AppCompatActivity implements  View.OnClickL
                         }
                         if (cbJumat.isChecked()) {
                             int jumat = 6;
+                            condition = "Jumat";
                             String formatted_new_date = getNewDate(day_now, jumat);
                             Log.d("jumat", formatted_new_date);
                             if(rbOpenWeather.isChecked()){
+                                action = "OpenWeather notif";
                                 Log.d("OpenWeather repeat", "OW repeat");
                                 JSONWeatherTask task = new JSONWeatherTask();
                                 task.execute(new String[]{"Bandung,ID",formatted_new_date,repeatTime,"repeat"});
@@ -253,9 +283,11 @@ public class PhoneAutomation extends AppCompatActivity implements  View.OnClickL
                         }
                         if (cbSabtu.isChecked()) {
                             int sabtu = 7;
+                            condition = "Sabtu";
                             String formatted_new_date = getNewDate(day_now, sabtu);
                             Log.d("sabtu", formatted_new_date);
                             if(rbOpenWeather.isChecked()){
+                                action = "OpenWeather notif";
                                 Log.d("OpenWeather repeat", "OW repeat");
                                 JSONWeatherTask task = new JSONWeatherTask();
                                 task.execute(new String[]{"Bandung,ID",formatted_new_date,repeatTime,"repeat"});
@@ -263,9 +295,11 @@ public class PhoneAutomation extends AppCompatActivity implements  View.OnClickL
                         }
                         if (cbMinggu.isChecked()) {
                             int minggu = 1;
+                            condition = "Minggu";
                             String formatted_new_date = getNewDate(day_now, minggu);
                             Log.d("minggu", formatted_new_date);
                             if(rbOpenWeather.isChecked()){
+                                action = "OpenWeather notif";
                                 Log.d("OpenWeather repeat", "OW repeat");
                                 JSONWeatherTask task = new JSONWeatherTask();
                                 task.execute(new String[]{"Bandung,ID",formatted_new_date,repeatTime,"repeat"});
@@ -273,16 +307,24 @@ public class PhoneAutomation extends AppCompatActivity implements  View.OnClickL
                         }
                     }
                 }else if(rbDateTime.isChecked()){
+                    functionality = "Specific date and time";
                     Log.d("rbDateTime", "rbDateTime selected");
                     String onceDate = dateView.getText().toString();
                     String onceTime = timeView2.getText().toString();
+                    condition = onceDate + " " + onceTime;
                     if(rbOpenWeather.isChecked()){
                         Log.d("OpenWeather datetime", "OW datetime");
                         JSONWeatherTask task = new JSONWeatherTask();
                         task.execute(new String[]{"Bandung,ID",onceDate,onceTime,"one time"});
+                        action = "OpenWeather notif";
                     }
                 }
+                SQLiteDatabaseHandler db = new SQLiteDatabaseHandler(getApplicationContext());
+                Routine addedRoutine = new Routine(functionality, condition, action);
+                db.addRoutine(addedRoutine, true);
 
+                Intent redirectIntent = new Intent(PhoneAutomation.this, MainActivity.class);
+                startActivity(redirectIntent);
 
         }
     }
