@@ -370,6 +370,7 @@ public class PhoneAutomation extends AppCompatActivity implements  View.OnClickL
             if(weather.getIsRepeat().equals("one time")){
                 alarmReceiver.setOneTimeAlarm(getApplicationContext(), AlarmReceiver.TYPE_ONE_TIME, weather.getDate(), weather.getTime(), weather.currentCondition.getCondition()+"\n"+weather.currentCondition.getDescr());
             }else{
+                alarmReceiver.setRepeatingAlarm(getApplicationContext(),AlarmReceiver.TYPE_REPEATING,weather.getDate(),weather.getTime(),weather.currentCondition.getCondition()+"\n"+weather.currentCondition.getDescr());
                 //alarmReceiver.setRepeatingAlarm(this, AlarmReceiver.TYPE_REPEATING, formatted_new_date, repeatTime, repeatTitle + repeatMessage);
             }
         }
