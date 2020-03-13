@@ -6,14 +6,33 @@ import androidx.fragment.app.DialogFragment;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
-public class Reminder extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener {
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
+
+public class Reminder extends AppCompatActivity implements  View.OnClickListener, DatePickerFragment.DialogDateListener, TimePickerFragment.DialogTimeListener {
 
     TextView timeView, timeView2, dateView;
+    EditText edtReminderTitle, edtReminderMessage;
+    RadioButton rbAtTime, rbDateTime, rbNotifReminder;
+    Button btnSave;
+    CheckBox cbSenin, cbSelasa, cbRabu, cbKamis, cbJumat, cbSabtu, cbMinggu, cbRepeat;
+
+    private AlarmReceiver alarmReceiver;
+
+    final String DATE_PICKER_TAG = "DatePicker";
+    final String TIME_PICKER_TIME = "TimePickerSpecificTime";
+    final String TIME_PICKER_DATE_TIME = "TimePickerDateTime";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,41 +42,96 @@ public class Reminder extends AppCompatActivity implements TimePickerDialog.OnTi
         timeView = findViewById(R.id.time_view);
         timeView2 = findViewById(R.id.time_view2);
         dateView = findViewById(R.id.date_view);
+        edtReminderTitle = findViewById(R.id.notif_msg_title_input);
+        edtReminderMessage = findViewById(R.id.notif_msg_detail_input);
+        rbAtTime = findViewById(R.id.rb_at_time);
+        rbDateTime = findViewById(R.id.rb_date_time);
+        rbNotifReminder = findViewById(R.id.rb_notif_reminder);
+        btnSave = findViewById(R.id.saveReminder);
+        cbSenin = findViewById(R.id.senin);
+        cbSelasa = findViewById(R.id.selasa);
+        cbRabu = findViewById(R.id.rabu);
+        cbKamis = findViewById(R.id.kamis);
+        cbJumat = findViewById(R.id.jumat);
+        cbSabtu = findViewById(R.id.sabtu);
+        cbMinggu = findViewById(R.id.minggu);
+        cbRepeat = findViewById(R.id.onetime);
 
-        timeView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                DialogFragment timePicker = new TimePickerFragment();
-                timePicker.show(getSupportFragmentManager(), "Pick The Time");
-            }
-        });
-        timeView2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                DialogFragment timePicker2 = new TimePickerFragment();
-                timePicker2.show(getSupportFragmentManager(), "Pick The Time");
-            }
-        });
-        dateView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                DialogFragment datePicker = new DatePickerFragment();
-                datePicker.show(getSupportFragmentManager(), "Pick The Date");
-            }
-        });
+        btnSave.setOnClickListener(this);
+        timeView.setOnClickListener(this);
+        timeView2.setOnClickListener(this);
+        dateView.setOnClickListener(this);
+
+        alarmReceiver = new AlarmReceiver();
     }
 
     @Override
-    public void onTimeSet(TimePicker timePicker, int i, int i1) {
-        TextView timeView = findViewById(R.id.time_view);
-        TextView timeView2 = findViewById(R.id.time_view2);
-        timeView.setText(i + " : " + i1);
-        timeView2.setText(i + " : " + i1);
+    public void onDialogDateSet(String tag, int year, int month, int dayOfMonth) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(year, month, dayOfMonth);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM / dd / yyyy", Locale.getDefault());
+
+        dateView.setText(dateFormat.format(calendar.getTime()));
     }
 
     @Override
-    public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-        TextView dateView = findViewById(R.id.date_view);
-        dateView.setText(i2 + " / " + i1 + " / " + i);
+    public void onDialogTimeSet(String tag, int hourOfDay, int minute) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
+        calendar.set(Calendar.MINUTE, minute);
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH : mm", Locale.getDefault());
+
+        switch (tag){
+            case TIME_PICKER_TIME:
+                timeView.setText(dateFormat.format(calendar.getTime()));
+                break;
+            case TIME_PICKER_DATE_TIME:
+                timeView2.setText(dateFormat.format(calendar.getTime()));
+                break;
+            default:
+                break;
+        }
     }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.time_view:
+                TimePickerFragment timePickerFragment = new TimePickerFragment();
+                timePickerFragment.show(getSupportFragmentManager(), TIME_PICKER_TIME);
+                break;
+            case R.id.time_view2:
+                TimePickerFragment timePickerFragmentDateTime = new TimePickerFragment();
+                timePickerFragmentDateTime.show(getSupportFragmentManager(), TIME_PICKER_DATE_TIME);
+                break;
+            case R.id.date_view:
+                DatePickerFragment datePickerFragment = new DatePickerFragment();
+                datePickerFragment.show(getSupportFragmentManager(), DATE_PICKER_TAG);
+                break;
+            case R.id.saveReminder:
+                Log.d("save clicked", "save");
+                if (rbNotifReminder.isChecked()) {
+                    Log.d("NotifReminder", "NotifReminder selected");
+                    if (rbAtTime.isChecked()) {
+                        Log.d("rbAtTime", "rbAtTime selected");
+                        if(cbRepeat.isChecked()){
+                            Log.d("Repeat","Repeat");
+                        }else{
+                            Log.d("not repeat","not repeat");
+                        }
+                    } else if (rbDateTime.isChecked()) {
+                        Log.d("rbDateTime", "rbDateTime selected");
+                        String onceDate = dateView.getText().toString();
+                        String onceTime = timeView2.getText().toString();
+                        String onceMessage = edtReminderMessage.getText().toString();
+                        String onceTitle = edtReminderTitle.getText().toString()+"\n";
+
+                        alarmReceiver.setOneTimeAlarm(this, AlarmReceiver.TYPE_ONE_TIME, onceDate, onceTime, onceTitle+onceMessage);
+                    }
+                }
+                break;
+        }
+    }
+
 }
