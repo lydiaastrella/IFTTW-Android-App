@@ -9,6 +9,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.ifttw.recyclerview.Routine;
+import com.example.ifttw.recyclerview.SQLiteDatabaseHandler;
+import com.example.ifttw.ui.main.FunctionalityActivity;
+
 public class BatteryNotification extends AppCompatActivity {
 
     Button buttonSave;
@@ -31,6 +35,13 @@ public class BatteryNotification extends AppCompatActivity {
                         batteryIntent.putExtra("BATTERY_PERCENT", percentageBattery);
                         Log.d("P", "lololiloli");
                         startService(batteryIntent);
+
+                        SQLiteDatabaseHandler db = new SQLiteDatabaseHandler(getApplicationContext());
+                        Routine addedRoutine = new Routine("Battery Notification", Integer.toString(percentageBattery), "Turn Off Wifi");
+                        db.addRoutine(addedRoutine, true);
+
+                        Intent redirectIntent = new Intent(BatteryNotification.this, MainActivity.class);
+                        startActivity(redirectIntent);
                     }
                 }
             }

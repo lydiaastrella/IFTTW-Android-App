@@ -80,11 +80,7 @@
             </LinearLayout>
 
             <Button
-<<<<<<< HEAD
-                android:id="@+id/saveBattery"
-=======
                 android:id="@+id/saveAccelerometer"
->>>>>>> 0c013dc1410ca11852c29c0b954b1aaa9ad863b5
                 android:layout_width="93dp"
                 android:layout_height="45dp"
                 android:layout_marginLeft="135dp"

@@ -97,11 +97,7 @@
             </TableRow>
 
             <Button
-<<<<<<< HEAD
-                android:id="@+id/saveBattery"
-=======
                 android:id="@+id/saveAccelerometer"
->>>>>>> 0c013dc1410ca11852c29c0b954b1aaa9ad863b5
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="300dp"
