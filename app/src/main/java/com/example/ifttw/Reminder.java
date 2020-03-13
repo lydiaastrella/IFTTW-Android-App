@@ -1,23 +1,17 @@
 package com.example.ifttw;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
 
-import android.app.DatePickerDialog;
-import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
-import android.widget.TimePicker;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
@@ -49,7 +43,7 @@ public class Reminder extends AppCompatActivity implements  View.OnClickListener
         rbAtTime = findViewById(R.id.rb_at_time);
         rbDateTime = findViewById(R.id.rb_date_time);
         rbNotifReminder = findViewById(R.id.rb_notif_reminder);
-        btnSave = findViewById(R.id.saveReminder);
+        btnSave = findViewById(R.id.saveBattery);
         cbSenin = findViewById(R.id.senin);
         cbSelasa = findViewById(R.id.selasa);
         cbRabu = findViewById(R.id.rabu);
@@ -111,7 +105,7 @@ public class Reminder extends AppCompatActivity implements  View.OnClickListener
                 DatePickerFragment datePickerFragment = new DatePickerFragment();
                 datePickerFragment.show(getSupportFragmentManager(), DATE_PICKER_TAG);
                 break;
-            case R.id.saveReminder:
+            case R.id.saveBattery:
                 Log.d("save clicked", "save");
                 if (rbNotifReminder.isChecked()) {
                     Log.d("NotifReminder", "NotifReminder selected");

@@ -55,7 +55,7 @@
                     android:orientation="horizontal">
 
                     <EditText
-                        android:id="@+id/editText"
+                        android:id="@+id/percentageBattery"
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="130dp"
@@ -102,7 +102,7 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/saveReminder"
+                android:id="@+id/saveBattery"
                 android:layout_width="93dp"
                 android:layout_height="40dp"
                 android:layout_marginLeft="140dp"
