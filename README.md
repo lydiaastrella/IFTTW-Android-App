@@ -23,6 +23,7 @@ Mengatur notifikasi pengingat yang dapat dikustomisasi pengguna dalam waktu-wakt
 9. Modul aksi yang mengaktifkan/mematikan WiFi terdapat pada kategori rutin ‘Phone Automation’
 
 ## Library yang Digunakan dan Justifikasi Penggunaannya
+Pada Aplikasi IFTTW hanya digunakan library bawaan.
 
 ## Screenshot Aplikasi
 ### Home (Active Routines)
