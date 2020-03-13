@@ -133,8 +133,9 @@ public class PhoneAutomation extends AppCompatActivity implements  View.OnClickL
                             Log.d("senin", formatted_new_date);
                             if(rbOpenWeather.isChecked()){
                                 Log.d("OpenWeather one time", "OW one time");
+                                JSONWeatherTask task = new JSONWeatherTask();
+                                task.execute(new String[]{"Bandung,ID",formatted_new_date,onceTime,"one time"});
                             }
-                            //alarmReceiver.setOneTimeAlarm(this, AlarmReceiver.TYPE_ONE_TIME, formatted_new_date, onceTime, onceTitle+onceMessage);
                         }
                         if(cbSelasa.isChecked()){
                             int selasa = 3;
@@ -142,8 +143,9 @@ public class PhoneAutomation extends AppCompatActivity implements  View.OnClickL
                             Log.d("selasa", formatted_new_date);
                             if(rbOpenWeather.isChecked()){
                                 Log.d("OpenWeather one time", "OW one time");
+                                JSONWeatherTask task = new JSONWeatherTask();
+                                task.execute(new String[]{"Bandung,ID",formatted_new_date,onceTime,"one time"});
                             }
-                            //alarmReceiver.setOneTimeAlarm(this, AlarmReceiver.TYPE_ONE_TIME, formatted_new_date, onceTime, onceTitle+onceMessage);
                         }
                         if(cbRabu.isChecked()){
                             int rabu = 4;
@@ -151,8 +153,9 @@ public class PhoneAutomation extends AppCompatActivity implements  View.OnClickL
                             Log.d("rabu", formatted_new_date);
                             if(rbOpenWeather.isChecked()){
                                 Log.d("OpenWeather one time", "OW one time");
+                                JSONWeatherTask task = new JSONWeatherTask();
+                                task.execute(new String[]{"Bandung,ID",formatted_new_date,onceTime,"one time"});
                             }
-                            //alarmReceiver.setOneTimeAlarm(this, AlarmReceiver.TYPE_ONE_TIME, formatted_new_date, onceTime, onceTitle+onceMessage);
                         }
                         if(cbKamis.isChecked()){
                             int kamis = 5;
@@ -160,8 +163,9 @@ public class PhoneAutomation extends AppCompatActivity implements  View.OnClickL
                             Log.d("kamis", formatted_new_date);
                             if(rbOpenWeather.isChecked()){
                                 Log.d("OpenWeather one time", "OW one time");
+                                JSONWeatherTask task = new JSONWeatherTask();
+                                task.execute(new String[]{"Bandung,ID",formatted_new_date,onceTime,"one time"});
                             }
-                            //alarmReceiver.setOneTimeAlarm(this, AlarmReceiver.TYPE_ONE_TIME, formatted_new_date, onceTime, onceTitle+onceMessage);
                         }
                         if(cbJumat.isChecked()){
                             int jumat =6;
@@ -169,8 +173,9 @@ public class PhoneAutomation extends AppCompatActivity implements  View.OnClickL
                             Log.d("jumat", formatted_new_date);
                             if(rbOpenWeather.isChecked()){
                                 Log.d("OpenWeather one time", "OW one time");
+                                JSONWeatherTask task = new JSONWeatherTask();
+                                task.execute(new String[]{"Bandung,ID",formatted_new_date,onceTime,"one time"});
                             }
-                            //alarmReceiver.setOneTimeAlarm(this, AlarmReceiver.TYPE_ONE_TIME, formatted_new_date, onceTime, onceTitle+onceMessage);
                         }
                         if (cbSabtu.isChecked()) {
                             int sabtu = 7;
@@ -178,8 +183,9 @@ public class PhoneAutomation extends AppCompatActivity implements  View.OnClickL
                             Log.d("sabtu", formatted_new_date);
                             if(rbOpenWeather.isChecked()){
                                 Log.d("OpenWeather one time", "OW one time");
+                                JSONWeatherTask task = new JSONWeatherTask();
+                                task.execute(new String[]{"Bandung,ID",formatted_new_date,onceTime,"one time"});
                             }
-                            //alarmReceiver.setOneTimeAlarm(this, AlarmReceiver.TYPE_ONE_TIME, formatted_new_date, onceTime, onceTitle+onceMessage);
                         }
                         if(cbMinggu.isChecked()){
                             int minggu = 1;
@@ -187,8 +193,9 @@ public class PhoneAutomation extends AppCompatActivity implements  View.OnClickL
                             Log.d("minggu", formatted_new_date);
                             if(rbOpenWeather.isChecked()){
                                 Log.d("OpenWeather one time", "OW one time");
+                                JSONWeatherTask task = new JSONWeatherTask();
+                                task.execute(new String[]{"Bandung,ID",formatted_new_date,onceTime,"one time"});
                             }
-                            //alarmReceiver.setOneTimeAlarm(this, AlarmReceiver.TYPE_ONE_TIME, formatted_new_date, onceTime, onceTitle+onceMessage);
                         }
                     }else {
                         Log.d("Repeat", "Repeat");
@@ -200,8 +207,9 @@ public class PhoneAutomation extends AppCompatActivity implements  View.OnClickL
                             Log.d("senin", formatted_new_date);
                             if(rbOpenWeather.isChecked()){
                                 Log.d("OpenWeather repeat", "OW repeat");
+                                JSONWeatherTask task = new JSONWeatherTask();
+                                task.execute(new String[]{"Bandung,ID",formatted_new_date,repeatTime,"repeat"});
                             }
-                            //alarmReceiver.setRepeatingAlarm(this, AlarmReceiver.TYPE_REPEATING, formatted_new_date, repeatTime, repeatTitle + repeatMessage);
                         }
                         if (cbSelasa.isChecked()) {
                             int selasa = 3;
@@ -209,8 +217,9 @@ public class PhoneAutomation extends AppCompatActivity implements  View.OnClickL
                             Log.d("selasa", formatted_new_date);
                             if(rbOpenWeather.isChecked()){
                                 Log.d("OpenWeather repeat", "OW repeat");
+                                JSONWeatherTask task = new JSONWeatherTask();
+                                task.execute(new String[]{"Bandung,ID",formatted_new_date,repeatTime,"repeat"});
                             }
-                            //alarmReceiver.setRepeatingAlarm(this, AlarmReceiver.TYPE_REPEATING, formatted_new_date, repeatTime, repeatTitle + repeatMessage);
                         }
                         if (cbRabu.isChecked()) {
                             int rabu = 4;
@@ -218,8 +227,9 @@ public class PhoneAutomation extends AppCompatActivity implements  View.OnClickL
                             Log.d("rabu", formatted_new_date);
                             if(rbOpenWeather.isChecked()){
                                 Log.d("OpenWeather repeat", "OW repeat");
+                                JSONWeatherTask task = new JSONWeatherTask();
+                                task.execute(new String[]{"Bandung,ID",formatted_new_date,repeatTime,"repeat"});
                             }
-                            //alarmReceiver.setRepeatingAlarm(this, AlarmReceiver.TYPE_REPEATING, formatted_new_date, repeatTime, repeatTitle + repeatMessage);
                         }
                         if (cbKamis.isChecked()) {
                             int kamis = 5;
@@ -227,8 +237,9 @@ public class PhoneAutomation extends AppCompatActivity implements  View.OnClickL
                             Log.d("kamis", formatted_new_date);
                             if(rbOpenWeather.isChecked()){
                                 Log.d("OpenWeather repeat", "OW repeat");
+                                JSONWeatherTask task = new JSONWeatherTask();
+                                task.execute(new String[]{"Bandung,ID",formatted_new_date,repeatTime,"repeat"});
                             }
-                            //alarmReceiver.setRepeatingAlarm(this, AlarmReceiver.TYPE_REPEATING, formatted_new_date, repeatTime, repeatTitle + repeatMessage);
                         }
                         if (cbJumat.isChecked()) {
                             int jumat = 6;
@@ -236,8 +247,9 @@ public class PhoneAutomation extends AppCompatActivity implements  View.OnClickL
                             Log.d("jumat", formatted_new_date);
                             if(rbOpenWeather.isChecked()){
                                 Log.d("OpenWeather repeat", "OW repeat");
+                                JSONWeatherTask task = new JSONWeatherTask();
+                                task.execute(new String[]{"Bandung,ID",formatted_new_date,repeatTime,"repeat"});
                             }
-                            //alarmReceiver.setRepeatingAlarm(this, AlarmReceiver.TYPE_REPEATING, formatted_new_date, repeatTime, repeatTitle + repeatMessage);
                         }
                         if (cbSabtu.isChecked()) {
                             int sabtu = 7;
@@ -245,8 +257,9 @@ public class PhoneAutomation extends AppCompatActivity implements  View.OnClickL
                             Log.d("sabtu", formatted_new_date);
                             if(rbOpenWeather.isChecked()){
                                 Log.d("OpenWeather repeat", "OW repeat");
+                                JSONWeatherTask task = new JSONWeatherTask();
+                                task.execute(new String[]{"Bandung,ID",formatted_new_date,repeatTime,"repeat"});
                             }
-                            //alarmReceiver.setRepeatingAlarm(this, AlarmReceiver.TYPE_REPEATING, formatted_new_date, repeatTime, repeatTitle + repeatMessage);
                         }
                         if (cbMinggu.isChecked()) {
                             int minggu = 1;
@@ -254,8 +267,9 @@ public class PhoneAutomation extends AppCompatActivity implements  View.OnClickL
                             Log.d("minggu", formatted_new_date);
                             if(rbOpenWeather.isChecked()){
                                 Log.d("OpenWeather repeat", "OW repeat");
+                                JSONWeatherTask task = new JSONWeatherTask();
+                                task.execute(new String[]{"Bandung,ID",formatted_new_date,repeatTime,"repeat"});
                             }
-                            //alarmReceiver.setRepeatingAlarm(this, AlarmReceiver.TYPE_REPEATING, formatted_new_date, repeatTime, repeatTitle + repeatMessage);
                         }
                     }
                 }else if(rbDateTime.isChecked()){
@@ -312,11 +326,9 @@ public class PhoneAutomation extends AppCompatActivity implements  View.OnClickL
             super.onPostExecute(weather);
 
             if(weather.getIsRepeat().equals("one time")){
-                Log.d("Masuk on Post Execute", "one time");
-                Log.d("context",getApplicationContext().toString());
-                Log.d("time",weather.getTime());
-                Log.d("date", weather.getDate());
                 alarmReceiver.setOneTimeAlarm(getApplicationContext(), AlarmReceiver.TYPE_ONE_TIME, weather.getDate(), weather.getTime(), weather.currentCondition.getCondition()+"\n"+weather.currentCondition.getDescr());
+            }else{
+                //alarmReceiver.setRepeatingAlarm(this, AlarmReceiver.TYPE_REPEATING, formatted_new_date, repeatTime, repeatTitle + repeatMessage);
             }
         }
     }
