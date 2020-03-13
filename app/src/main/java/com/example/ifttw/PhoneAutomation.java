@@ -35,7 +35,7 @@ import java.util.Locale;
 public class PhoneAutomation extends AppCompatActivity implements  View.OnClickListener, DatePickerFragment.DialogDateListener, TimePickerFragment.DialogTimeListener {
 
     TextView timeView, timeView2, dateView;
-    RadioButton rbAtTime, rbDateTime, rbNotifReminder, rbMutePhone, rbUnmutePhone, rbOnWifi, rbOffWifi, rbOpenWeather;
+    RadioButton rbAtTime, rbDateTime, rbOnWifi, rbOffWifi, rbOpenWeather;
     Button btnSave;
     CheckBox cbSenin, cbSelasa, cbRabu, cbKamis, cbJumat, cbSabtu, cbMinggu, cbOneTime;
     String functionality, condition, action;
@@ -56,9 +56,6 @@ public class PhoneAutomation extends AppCompatActivity implements  View.OnClickL
         dateView = findViewById(R.id.date_view);
         rbAtTime = findViewById(R.id.rb_at_time);
         rbDateTime = findViewById(R.id.rb_date_time);
-        rbNotifReminder = findViewById(R.id.rb_notif_reminder);
-        rbMutePhone = findViewById(R.id.mutePhone);
-        rbUnmutePhone = findViewById(R.id.unmutePhone);
         rbOnWifi = findViewById(R.id.onWifi);
         rbOffWifi = findViewById(R.id.offWifi);
         rbOpenWeather = findViewById(R.id.open_weather);
@@ -371,7 +368,6 @@ public class PhoneAutomation extends AppCompatActivity implements  View.OnClickL
                 alarmReceiver.setOneTimeAlarm(getApplicationContext(), AlarmReceiver.TYPE_ONE_TIME, weather.getDate(), weather.getTime(), weather.currentCondition.getCondition()+"\n"+weather.currentCondition.getDescr());
             }else{
                 alarmReceiver.setRepeatingAlarm(getApplicationContext(),AlarmReceiver.TYPE_REPEATING,weather.getDate(),weather.getTime(),weather.currentCondition.getCondition()+"\n"+weather.currentCondition.getDescr());
-                //alarmReceiver.setRepeatingAlarm(this, AlarmReceiver.TYPE_REPEATING, formatted_new_date, repeatTime, repeatTitle + repeatMessage);
             }
         }
     }

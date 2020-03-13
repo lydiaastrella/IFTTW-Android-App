@@ -174,27 +174,6 @@
                     android:layout_height="400dp">
 
                     <RadioButton
-                        android:id="@+id/rb_notif_reminder"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:checked="true"
-                        android:text="@string/act_get_notif_radio" />
-
-                    <RadioButton
-                        android:id="@+id/mutePhone"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_weight="0"
-                        android:text="@string/act_mute_phone" />
-
-                    <RadioButton
-                        android:id="@+id/unmutePhone"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_weight="0"
-                        android:text="@string/act_unmute_phone" />
-
-                    <RadioButton
                         android:id="@+id/onWifi"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
