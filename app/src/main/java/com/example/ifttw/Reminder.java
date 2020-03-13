@@ -113,15 +113,11 @@ public class Reminder extends AppCompatActivity implements  View.OnClickListener
                         Log.d("rbAtTime", "rbAtTime selected");
                         if(cbOneTime.isChecked()){
                             Log.d("One Time","One Time");
-                            Date date_now = Calendar.getInstance().getTime();
-                            SimpleDateFormat df = new SimpleDateFormat("MM / dd / yyyy");
-                            String formatted_date_now = df.format(date_now);
                             String onceTime = timeView.getText().toString();
                             String onceMessage = edtReminderMessage.getText().toString();
                             String onceTitle = edtReminderTitle.getText().toString()+"\n";
                             Log.d("message", onceTitle + onceMessage);
                             int day_now = Calendar.getInstance().get(Calendar.DAY_OF_WEEK);
-                            int selisih;
                             if(cbSenin.isChecked()) {
                                 int senin = 2;
                                 String formatted_new_date = getNewDate(day_now, senin);
@@ -166,6 +162,54 @@ public class Reminder extends AppCompatActivity implements  View.OnClickListener
                             }
                         }else{
                             Log.d("Repeat","Repeat");
+                            String repeatTime = timeView.getText().toString();
+                            String repeatMessage = edtReminderMessage.getText().toString();
+                            String repeatTitle = edtReminderTitle.getText().toString()+"\n";
+
+                            int day_now = Calendar.getInstance().get(Calendar.DAY_OF_WEEK);
+                            if(cbSenin.isChecked()) {
+                                int senin = 2;
+                                String formatted_new_date = getNewDate(day_now, senin);
+                                Log.d("senin", formatted_new_date);
+                                alarmReceiver.setRepeatingAlarm(this, AlarmReceiver.TYPE_REPEATING, formatted_new_date, repeatTime, repeatTitle+repeatMessage);
+                            }
+                            if(cbSelasa.isChecked()){
+                                int selasa = 3;
+                                String formatted_new_date = getNewDate(day_now, selasa);
+                                Log.d("selasa", formatted_new_date);
+                                alarmReceiver.setRepeatingAlarm(this, AlarmReceiver.TYPE_REPEATING, formatted_new_date, repeatTime, repeatTitle+repeatMessage);
+                            }
+                            if(cbRabu.isChecked()){
+                                int rabu = 4;
+                                String formatted_new_date = getNewDate(day_now, rabu);
+                                Log.d("rabu", formatted_new_date);
+                                alarmReceiver.setRepeatingAlarm(this, AlarmReceiver.TYPE_REPEATING, formatted_new_date, repeatTime, repeatTitle+repeatMessage);
+                            }
+                            if(cbKamis.isChecked()){
+                                int kamis = 5;
+                                String formatted_new_date = getNewDate(day_now, kamis);
+                                Log.d("kamis", formatted_new_date);
+                                alarmReceiver.setRepeatingAlarm(this, AlarmReceiver.TYPE_REPEATING, formatted_new_date, repeatTime, repeatTitle+repeatMessage);
+                            }
+                            if(cbJumat.isChecked()){
+                                int jumat =6;
+                                String formatted_new_date = getNewDate(day_now, jumat);
+                                Log.d("jumat", formatted_new_date);
+                                alarmReceiver.setRepeatingAlarm(this, AlarmReceiver.TYPE_REPEATING, formatted_new_date, repeatTime, repeatTitle+repeatMessage);
+                            }
+                            if (cbSabtu.isChecked()) {
+                                int sabtu = 7;
+                                String formatted_new_date = getNewDate(day_now, sabtu);
+                                Log.d("sabtu", formatted_new_date);
+                                alarmReceiver.setRepeatingAlarm(this, AlarmReceiver.TYPE_REPEATING, formatted_new_date, repeatTime, repeatTitle+repeatMessage);
+                            }
+                            if(cbMinggu.isChecked()){
+                                int minggu = 1;
+                                String formatted_new_date = getNewDate(day_now, minggu);
+                                Log.d("minggu", formatted_new_date);
+                                alarmReceiver.setRepeatingAlarm(this, AlarmReceiver.TYPE_REPEATING, formatted_new_date, repeatTime, repeatTitle+repeatMessage);
+                            }
+                            //alarmReceiver.setRepeatingAlarm(this, AlarmReceiver.TYPE_REPEATING, repeatTime, repeatTitle+repeatMessage);
                         }
                     } else if (rbDateTime.isChecked()) {
                         Log.d("rbDateTime", "rbDateTime selected");

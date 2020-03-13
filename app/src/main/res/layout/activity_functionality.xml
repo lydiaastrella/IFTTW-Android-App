@@ -10,7 +10,7 @@
         android:id="@+id/btn_step"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/steps_counter"/>
+        android:text="@string/accelerometer_sensor"/>
 
     <Button
         android:id="@+id/btn_phone_auto"

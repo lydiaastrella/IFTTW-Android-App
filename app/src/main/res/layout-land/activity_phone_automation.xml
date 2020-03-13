@@ -53,7 +53,7 @@
                             android:layout_height="wrap_content">
 
                             <RadioButton
-                                android:id="@+id/cond_battery"
+                                android:id="@+id/rb_at_time"
                                 android:layout_width="wrap_content"
                                 android:layout_height="40dp"
                                 android:checked="true"
@@ -125,7 +125,7 @@
                                         android:text="@string/minggu" />
 
                                     <CheckBox
-                                        android:id="@+id/checkBox10"
+                                        android:id="@+id/onetime"
                                         android:layout_width="95dp"
                                         android:layout_height="wrap_content"
                                         android:text="@string/satukali" />
@@ -135,7 +135,7 @@
                             </TableLayout>
 
                             <RadioButton
-                                android:id="@+id/cond_datetime_radio2"
+                                android:id="@+id/rb_date_time"
                                 android:layout_width="wrap_content"
                                 android:layout_height="40dp"
                                 android:layout_weight="0"
@@ -189,7 +189,7 @@
                         android:layout_height="400dp">
 
                         <RadioButton
-                            android:id="@+id/act_of_wifi"
+                            android:id="@+id/rb_notif_reminder"
                             android:layout_width="match_parent"
                             android:layout_height="40dp"
                             android:checked="true"
@@ -224,7 +224,7 @@
                             android:text="@string/act_off_wifi" />
 
                         <RadioButton
-                            android:id="@+id/radioButton5"
+                            android:id="@+id/open_weather"
                             android:layout_width="match_parent"
                             android:layout_height="40dp"
                             android:layout_weight="0"
@@ -237,7 +237,7 @@
             </TableRow>
 
             <Button
-                android:id="@+id/saveBattery"
+                android:id="@+id/saveAutomation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="300dp"
