@@ -46,6 +46,9 @@ public class Accelerometer extends AppCompatActivity implements View.OnClickList
                 Routine accelRoutine = new Routine("Accelerometer Sensor", "When acceleration significantly changed", "Get notification");
                 db.addRoutine(accelRoutine,true);
 
+                Intent redirectIntent = new Intent(Accelerometer.this, MainActivity.class);
+                startActivity(redirectIntent);
+
             }
         }
     }
