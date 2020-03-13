@@ -25,4 +25,29 @@ Mengatur notifikasi pengingat yang dapat dikustomisasi pengguna dalam waktu-wakt
 ## Library yang Digunakan dan Justifikasi Penggunaannya
 
 ## Screenshot Aplikasi
+### Home (Active Routines)
+![Active Routines](App Screenshot/home - active.png)
 
+### Home (Inctive Routines)
+![Inactive Routines](App Screenshot/home - inactive.png)
+
+### Active (Contextual Popup Menu)
+![Active Popup](App Screenshot/active-contextual popup menu.png)
+
+### Inactive (Contextual Popup Menu)
+![Inactive Popup](App Screenshot/inactive - contextual popup menu.png)
+
+### Routine Category (Add Routine)
+![Routine Category](App Screenshot/routine category.png)
+
+### Accelerometer Sensor
+![Accelerometer](App Screenshot/accelerometer sensor.png)
+
+### Phone Automation
+![Phone Automation](App Screenshot/phone automation.png)
+
+### Battery Low Management
+![Battery Low](App Screenshot/battery low management.png)
+
+### Reminder Notification
+![Reminder](App Screenshot/reminder notification.png)
