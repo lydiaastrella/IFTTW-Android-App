@@ -2,6 +2,7 @@ package com.example.ifttw;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,6 +11,9 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
+
+import com.example.ifttw.recyclerview.Routine;
+import com.example.ifttw.recyclerview.SQLiteDatabaseHandler;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -23,6 +27,7 @@ public class Reminder extends AppCompatActivity implements  View.OnClickListener
     RadioButton rbAtTime, rbDateTime, rbNotifReminder;
     Button btnSave;
     CheckBox cbSenin, cbSelasa, cbRabu, cbKamis, cbJumat, cbSabtu, cbMinggu, cbOneTime;
+    String functionality, condition, action;
 
     private AlarmReceiver alarmReceiver;
 
@@ -110,6 +115,7 @@ public class Reminder extends AppCompatActivity implements  View.OnClickListener
                 if (rbNotifReminder.isChecked()) {
                     Log.d("NotifReminder", "NotifReminder selected");
                     if (rbAtTime.isChecked()) {
+                        functionality = "Time Specific";
                         Log.d("rbAtTime", "rbAtTime selected");
                         if(cbOneTime.isChecked()){
                             Log.d("One Time","One Time");
@@ -120,42 +126,49 @@ public class Reminder extends AppCompatActivity implements  View.OnClickListener
                             int day_now = Calendar.getInstance().get(Calendar.DAY_OF_WEEK);
                             if(cbSenin.isChecked()) {
                                 int senin = 2;
+                                condition = "Senin";
                                 String formatted_new_date = getNewDate(day_now, senin);
                                 Log.d("senin", formatted_new_date);
                                 alarmReceiver.setOneTimeAlarm(this, AlarmReceiver.TYPE_ONE_TIME, formatted_new_date, onceTime, onceTitle+onceMessage);
                             }
                             if(cbSelasa.isChecked()){
                                 int selasa = 3;
+                                condition = "Selasa";
                                 String formatted_new_date = getNewDate(day_now, selasa);
                                 Log.d("selasa", formatted_new_date);
                                 alarmReceiver.setOneTimeAlarm(this, AlarmReceiver.TYPE_ONE_TIME, formatted_new_date, onceTime, onceTitle+onceMessage);
                             }
                             if(cbRabu.isChecked()){
                                 int rabu = 4;
+                                condition = "Rabu";
                                 String formatted_new_date = getNewDate(day_now, rabu);
                                 Log.d("rabu", formatted_new_date);
                                 alarmReceiver.setOneTimeAlarm(this, AlarmReceiver.TYPE_ONE_TIME, formatted_new_date, onceTime, onceTitle+onceMessage);
                             }
                             if(cbKamis.isChecked()){
                                 int kamis = 5;
+                                condition = "Kamis";
                                 String formatted_new_date = getNewDate(day_now, kamis);
                                 Log.d("kamis", formatted_new_date);
                                 alarmReceiver.setOneTimeAlarm(this, AlarmReceiver.TYPE_ONE_TIME, formatted_new_date, onceTime, onceTitle+onceMessage);
                             }
                             if(cbJumat.isChecked()){
                                 int jumat =6;
+                                condition = "Jumat";
                                 String formatted_new_date = getNewDate(day_now, jumat);
                                 Log.d("jumat", formatted_new_date);
                                 alarmReceiver.setOneTimeAlarm(this, AlarmReceiver.TYPE_ONE_TIME, formatted_new_date, onceTime, onceTitle+onceMessage);
                             }
                             if (cbSabtu.isChecked()) {
                                 int sabtu = 7;
+                                condition = "Sabtu";
                                 String formatted_new_date = getNewDate(day_now, sabtu);
                                 Log.d("sabtu", formatted_new_date);
                                 alarmReceiver.setOneTimeAlarm(this, AlarmReceiver.TYPE_ONE_TIME, formatted_new_date, onceTime, onceTitle+onceMessage);
                             }
                             if(cbMinggu.isChecked()){
                                 int minggu = 1;
+                                condition = "Minggu";
                                 String formatted_new_date = getNewDate(day_now, minggu);
                                 Log.d("minggu", formatted_new_date);
                                 alarmReceiver.setOneTimeAlarm(this, AlarmReceiver.TYPE_ONE_TIME, formatted_new_date, onceTime, onceTitle+onceMessage);
@@ -169,6 +182,7 @@ public class Reminder extends AppCompatActivity implements  View.OnClickListener
                             int day_now = Calendar.getInstance().get(Calendar.DAY_OF_WEEK);
                             if(cbSenin.isChecked()) {
                                 int senin = 2;
+                                condition = "Senin";
                                 String formatted_new_date = getNewDate(day_now, senin);
                                 Log.d("senin", formatted_new_date);
                                 alarmReceiver.setRepeatingAlarm(this, AlarmReceiver.TYPE_REPEATING, formatted_new_date, repeatTime, repeatTitle+repeatMessage);
@@ -181,37 +195,44 @@ public class Reminder extends AppCompatActivity implements  View.OnClickListener
                             }
                             if(cbRabu.isChecked()){
                                 int rabu = 4;
+                                condition = "Rabu";
                                 String formatted_new_date = getNewDate(day_now, rabu);
                                 Log.d("rabu", formatted_new_date);
                                 alarmReceiver.setRepeatingAlarm(this, AlarmReceiver.TYPE_REPEATING, formatted_new_date, repeatTime, repeatTitle+repeatMessage);
                             }
                             if(cbKamis.isChecked()){
                                 int kamis = 5;
+                                condition = "Kamis";
                                 String formatted_new_date = getNewDate(day_now, kamis);
                                 Log.d("kamis", formatted_new_date);
                                 alarmReceiver.setRepeatingAlarm(this, AlarmReceiver.TYPE_REPEATING, formatted_new_date, repeatTime, repeatTitle+repeatMessage);
                             }
                             if(cbJumat.isChecked()){
                                 int jumat =6;
+                                condition = "Jumat";
                                 String formatted_new_date = getNewDate(day_now, jumat);
                                 Log.d("jumat", formatted_new_date);
                                 alarmReceiver.setRepeatingAlarm(this, AlarmReceiver.TYPE_REPEATING, formatted_new_date, repeatTime, repeatTitle+repeatMessage);
                             }
                             if (cbSabtu.isChecked()) {
                                 int sabtu = 7;
+                                condition = "Sabtu";
                                 String formatted_new_date = getNewDate(day_now, sabtu);
                                 Log.d("sabtu", formatted_new_date);
                                 alarmReceiver.setRepeatingAlarm(this, AlarmReceiver.TYPE_REPEATING, formatted_new_date, repeatTime, repeatTitle+repeatMessage);
                             }
                             if(cbMinggu.isChecked()){
                                 int minggu = 1;
+                                condition = "Minggu";
                                 String formatted_new_date = getNewDate(day_now, minggu);
                                 Log.d("minggu", formatted_new_date);
                                 alarmReceiver.setRepeatingAlarm(this, AlarmReceiver.TYPE_REPEATING, formatted_new_date, repeatTime, repeatTitle+repeatMessage);
                             }
                             //alarmReceiver.setRepeatingAlarm(this, AlarmReceiver.TYPE_REPEATING, repeatTime, repeatTitle+repeatMessage);
+                            action = repeatTitle;
                         }
                     } else if (rbDateTime.isChecked()) {
+                        functionality = "Date and time specific";
                         Log.d("rbDateTime", "rbDateTime selected");
                         String onceDate = dateView.getText().toString();
                         String onceTime = timeView2.getText().toString();
@@ -219,8 +240,16 @@ public class Reminder extends AppCompatActivity implements  View.OnClickListener
                         String onceTitle = edtReminderTitle.getText().toString()+"\n";
 
                         alarmReceiver.setOneTimeAlarm(this, AlarmReceiver.TYPE_ONE_TIME, onceDate, onceTime, onceTitle+onceMessage);
+                        condition = onceDate + " " + onceTime;
+                        action = onceTitle;
                     }
                 }
+                SQLiteDatabaseHandler db = new SQLiteDatabaseHandler(getApplicationContext());
+                Routine addedRoutine = new Routine(functionality, condition, action);
+                db.addRoutine(addedRoutine, true);
+
+                Intent redirectIntent = new Intent(Reminder.this, MainActivity.class);
+                startActivity(redirectIntent);
                 break;
         }
     }
